@@ -16,6 +16,7 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -42,7 +43,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mhinz/vim-startify'
     Plug 'fisadev/vim-isort'
     Plug 'tpope/vim-surround'
-    Plug 'neovim/nvim-lspconfig'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "not working
+    "Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'tpope/vim-surround'
     Plug 'nvim-lua/popup.nvim'
