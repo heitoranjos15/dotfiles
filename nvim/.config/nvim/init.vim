@@ -1,5 +1,5 @@
 for f in split(glob('~/.config/nvim/plugins/*.vim'), '\n')
-    exe 'source' f
+      exe 'source' f
 endfor
 
 set path+=**
@@ -40,12 +40,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'KKPMW/vim-sendtowindow'
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    Plug 'mhinz/vim-startify'
+"    Plug 'mhinz/vim-startify'
     Plug 'fisadev/vim-isort'
     Plug 'tpope/vim-surround'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "not working
-    "Plug 'neovim/nvim-lspconfig'
+    Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'tpope/vim-surround'
     Plug 'nvim-lua/popup.nvim'
@@ -54,14 +54,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
-
-" startify
-let g:startify_lists = [
-      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-      \ { 'type': 'files',     'header': ['   Recent']            },
-      \ { 'type': 'commands',  'header': ['   Commands']       },
-      \ ]
-
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
