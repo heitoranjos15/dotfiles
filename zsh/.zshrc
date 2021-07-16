@@ -3,7 +3,9 @@
 
 # Path to your oh-my-zsh installation.
 DISABLE_MAGIC_FUNCTIONS=true
-export ZSH="/home/heitor/.oh-my-zsh"
+export ZSH="/home/heitoranjos/.oh-my-zsh"
+export GITHUBTOKEN="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"
+export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

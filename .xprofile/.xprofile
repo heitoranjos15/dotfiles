@@ -4,3 +4,5 @@ setxkbmap br &
 nitrogen --restore &
 nm-applet &
 blueman-applet &
+firefox &
+brave-browser-nightly &

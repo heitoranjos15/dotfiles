@@ -2,19 +2,23 @@ from libqtile.lazy import lazy
 from libqtile.config import Group, Match,Key
 from .keybinds import mod, keys
 
-browser_matches = [
-    Match(wm_class=["Brave-browser"]),
-    Match(wm_class=["firefox"])
+fun_stuff_matches = [
+    Match(wm_class=["firefox"]),
+    Match(wm_class=["spotify"])
+]
+chat_matches = [
+    Match(wm_class=["discord"]),
+    Match(wm_class=["slack"])
 ]
 
 group_names = [
-    ("desktop", {"layout": "floating", "matches": [Match(wm_class=["Thunar"])]}),
-    ("browser", {"layout": "treetab", "matches": browser_matches}),
-    ("code", {"layout": "monadtall", "matches": [Match(wm_class=["code"])]}),
-    ("postman", {"layout": "max", "matches": [Match(wm_class=["Postman"])]}),
-    ("notion", {"layout": "max", "matches": [Match(wm_class=["notion-snap"])]}),
-    ("slack", {"layout": "max", "matches": [Match(wm_class=["slack"])]}),
-    ("music",  {"layout": 'max', "matches": [Match(wm_class=["spotify"])]}),
+    (".1", {"layout": "monadtall"}),
+    (".2", {"layout": "monadtall"}),
+    (" .3", {"layout": "treetab", "matches": [Match(wm_class=["brave-browser-nightly"])]}),
+    ("聆.4", {"layout": "max", "matches": chat_matches}),
+    (".5",  {"layout": 'columns'}),
+    (".6", {"layout": "max", "matches": [Match(wm_class=["notion-app"])]}),
+    (".7",  {"layout": 'treetab', "matches": fun_stuff_matches})
 ]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]

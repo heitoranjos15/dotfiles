@@ -1,7 +1,3 @@
-for f in split(glob('~/.config/nvim/plugins/*.vim'), '\n')
-    exe 'source' f
-endfor
-
 set path+=**
 
 " Nice menu when typing `:find *.py`
@@ -40,12 +36,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'KKPMW/vim-sendtowindow'
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    Plug 'mhinz/vim-startify'
-    Plug 'fisadev/vim-isort'
+"    Plug 'mhinz/vim-startify'
+"    Plug 'fisadev/vim-isort'
     Plug 'tpope/vim-surround'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ "   Plug 'neoclide/coc.nvim', {'branch': 'release'}
     "not working
-    "Plug 'neovim/nvim-lspconfig'
+    Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/nvim-compe'
     Plug 'tpope/vim-surround'
     Plug 'nvim-lua/popup.nvim'
@@ -56,13 +52,15 @@ call plug#end()
 
 
 " startify
-let g:startify_lists = [
-      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-      \ { 'type': 'files',     'header': ['   Recent']            },
-      \ { 'type': 'commands',  'header': ['   Commands']       },
-      \ ]
+"let g:startify_lists = [
+"      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+"      \ { 'type': 'files',     'header': ['   Recent']            },
+"      \ { 'type': 'commands',  'header': ['   Commands']       },
+"      \ ]
 
-
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -80,13 +78,15 @@ hi Normal guibg=NONE ctermbg=NONE
 set termguicolors
 
 let mapleader = " "
-:imap ii <Esc>
+let timeoutlen = "500" " Set timeout length to 500 ms
 nnoremap <leader>u :UndotreeShow<CR>
 "new line comand
 nmap <S-Enter> O<Esc>
 " python alias (,p runs python on script. ,t times python script)
 nmap ,p :w<CR>:!python3 %<CR>
 nmap ,t :w<CR>:!time python3 %<CR>
+nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
+
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -105,4 +105,4 @@ noremap <silent> <C-Down> :resize +3<CR>
 map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
-
+tnoremap <Esc> <C-\><C-n>

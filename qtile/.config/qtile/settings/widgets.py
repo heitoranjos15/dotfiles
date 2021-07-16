@@ -7,8 +7,8 @@ from settings.colors import Colors
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 default_args = {
-    "font": "Google Sans Bold",
-    "fontsize": 12
+    "font": "Fira Mono Nerd Font",
+    "fontsize": 10
 }
 
 def set_colors(bg="BLACK", fg="WHITE"):
@@ -20,7 +20,7 @@ def set_colors(bg="BLACK", fg="WHITE"):
 def arrow_left(bg="BLACK", fg="YELLOW"):
     return widget.TextBox(
         text="",
-        padding=-11,
+        padding=-15,
         fontsize=70,
         **set_colors(bg, fg)
     )
@@ -66,8 +66,9 @@ def workspaces():
             margin_x=0,
             paddyng_y=8,
             padding_x=10,
-            **set_colors(),
-            **default_args
+            font="Fira Mono Nerd Font",
+            fontsize= 13,
+            **set_colors()
         ),
         small_sep,
         widget.Prompt(
@@ -87,26 +88,6 @@ def workspaces():
 widget_primary = [
     *workspaces(),
     larger_sep,
-    
-    arrow_left(fg="CYAN"),
-    icon(bg="CYAN", text='  '), 
-    widget.Net(
-        padding=5,
-        interface='wlp0s20f3',
-        format = '{down} ↓↑ {up}',
-        **set_colors(bg='CYAN', fg="BLACK"),
-    ),
-
-    arrow_left(fg="YELLOW", bg="CYAN"),
-    icon(bg="YELLOW", text= ''),
-    widget.Memory(
-        padding=5,
-        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('alacritty -e htop')},
-        format='{MemUsed: .0f} -- {MemTotal: .0f}',
-        **set_colors(bg="YELLOW", fg="BLACK")
-    ),
-    
-    arrow_left(fg="CYAN", bg="YELLOW"),
     icon(bg="CYAN", text=' '),
     widget.Clock(
         **set_colors(bg='CYAN', fg="BLACK"), 
@@ -114,14 +95,12 @@ widget_primary = [
         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('alacritty -e calcurse')},
     ),
     
-    arrow_left(fg="YELLOW", bg="CYAN"),
     icon(bg="YELLOW", text=' '),
     widget.Volume(
         padding=5,
         volume_app="pavucontrol",
         **set_colors(bg="YELLOW", fg="BLACK")    
     ),
-    arrow_left(fg="CYAN", bg="YELLOW"),
     icon(bg="CYAN",text="⟳"),
     widget.CheckUpdates(
         padding=5,
@@ -135,7 +114,6 @@ widget_primary = [
         mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('alacritty -e sudo pacman -Syu')},
         **set_colors(bg="CYAN")
     ),
-    arrow_left(bg="CYAN", fg="BLACK"),
     widget.Systray(
         **set_colors(),
         padding=5,
