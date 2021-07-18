@@ -1,3 +1,4 @@
+let mapleader = " "
 set path+=**
 
 " Nice menu when typing `:find *.py`
@@ -21,46 +22,50 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+" Theme
     Plug 'rakr/vim-one'
     Plug 'sheerun/vim-polyglot'
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-    Plug 'nvim-treesitter/playground'
-    Plug 'scrooloose/NERDTree'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'rakr/vim-one'
+"Lightline
     Plug 'itchyny/lightline.vim'
+"Git features
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'airblade/vim-gitgutter'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'KKPMW/vim-sendtowindow'
-    Plug 'yuttie/comfortable-motion.vim'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-"    Plug 'mhinz/vim-startify'
-"    Plug 'fisadev/vim-isort'
-    Plug 'tpope/vim-surround'
- "   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    "not working
+"Tree sitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/playground'
+"Lsp
     Plug 'neovim/nvim-lspconfig'
-    Plug 'hrsh7th/nvim-compe'
-    Plug 'tpope/vim-surround'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'nvim-lua/completion-nvim'
+"Telescope
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+"Nvim-TreeLua
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    Plug 'kyazdani42/nvim-tree.lua'
+" Cool stuffs
+    Plug 'easymotion/vim-easymotion'
+    Plug 'yuttie/comfortable-motion.vim'
+    Plug 'KKPMW/vim-sendtowindow'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'tpope/vim-surround'
+
+"   I don't need now 
+"   Plug 'ryanoasis/vim-devicons'
+"   Plug 'scrooloose/NERDTree'
+"   Plug 'mhinz/vim-startify'
+"   Plug 'fisadev/vim-isort'
+"   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
-" startify
-"let g:startify_lists = [
-"      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-"      \ { 'type': 'files',     'header': ['   Recent']            },
-"      \ { 'type': 'commands',  'header': ['   Commands']       },
-"      \ ]
-
 lua << EOF
-require'lspconfig'.pyright.setup{}
+  require'lspconfig'.pyright.setup{}
 EOF
+
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -77,7 +82,6 @@ set background=dark
 hi Normal guibg=NONE ctermbg=NONE
 set termguicolors
 
-let mapleader = " "
 let timeoutlen = "500" " Set timeout length to 500 ms
 nnoremap <leader>u :UndotreeShow<CR>
 "new line comand
@@ -105,4 +109,9 @@ noremap <silent> <C-Down> :resize +3<CR>
 map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
+"Terminal remap
 tnoremap <Esc> <C-\><C-n>
+
+for f in split(glob('~/.config/nvim/plugins/*.vim'), '\n')
+      exe 'source' f
+endfor
