@@ -13,10 +13,10 @@ chat_matches = [
 
 group_names = [
     (".1", {"layout": "monadtall"}),
-    (".2", {"layout": "monadtall"}),
+    ("異.2", {"layout": "monadtall", "matches": [Match(wm_class=["postman"])]}),
     (" .3", {"layout": "treetab", "matches": [Match(wm_class=["brave-browser-nightly"])]}),
-    ("聆.4", {"layout": "max", "matches": chat_matches}),
-    (".5",  {"layout": 'columns'}),
+    (".4",  {"layout": 'monadtall'}),
+    ("聆.5", {"layout": "treetab", "matches": chat_matches}),
     (".6", {"layout": "max", "matches": [Match(wm_class=["notion-app"])]}),
     (".7",  {"layout": 'treetab', "matches": fun_stuff_matches})
 ]

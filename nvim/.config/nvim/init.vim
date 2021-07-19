@@ -52,6 +52,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'KKPMW/vim-sendtowindow'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
 
 "   I don't need now 
 "   Plug 'ryanoasis/vim-devicons'
