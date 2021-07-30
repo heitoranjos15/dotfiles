@@ -24,7 +24,14 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 " Theme
     Plug 'rakr/vim-one'
+    Plug 'Mofiqul/vscode.nvim'
     Plug 'sheerun/vim-polyglot'
+    Plug 'tjdevries/colorbuddy.vim'
+    Plug 'Th3Whit3Wolf/onebuddy'
+    Plug 'tjdevries/gruvbuddy.nvim'
+    Plug 'Th3Whit3Wolf/spacebuddy'
+    Plug 'rktjmp/lush.nvim'
+    Plug 'npxbr/gruvbox.nvim'
 "Lightline
     Plug 'itchyny/lightline.vim'
 "Git features
@@ -46,7 +53,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 "Nvim-TreeLua
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     Plug 'kyazdani42/nvim-tree.lua'
+"VimInspector
+    Plug 'puremourning/vimspector'
+    Plug 'szw/vim-maximizer'
 " Cool stuffs
+    Plug 'mbbill/undotree'
     Plug 'easymotion/vim-easymotion'
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'KKPMW/vim-sendtowindow'
@@ -78,12 +89,20 @@ let g:lightline = {
       \ },
       \ }
 
-colorscheme one
-set background=dark
+set shell=/bin/zsh
+
+" set background=dark
+" colorscheme gruvbox
+" lua require('colorbuddy').colorscheme('spacebuddy')
+let g:vscode_style = "dark"
+colorscheme vscode
+" colorscheme one
+" set background=dark
 hi Normal guibg=NONE ctermbg=NONE
 set termguicolors
 
-let timeoutlen = "500" " Set timeout length to 500 ms
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
 nnoremap <leader>u :UndotreeShow<CR>
 "new line comand
 nmap <S-Enter> O<Esc>

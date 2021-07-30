@@ -1,8 +1,13 @@
 numlockx &
-xrandr --output eDP-1 --mode 1600x900 --pos 480x1080 --output HDMI-1 --primary --mode 2560x1080 --pos 0x0 &
+xrandr --output HDMI-1 --primary --mode 2560x1080 --pos 0x0 --output eDP-1 --off &
 setxkbmap br &
 nitrogen --restore &
 nm-applet &
 blueman-applet &
 firefox &
 brave-browser-nightly &
+slack &
+discord &
+cbatticon &
+notion-snap &
+
