@@ -32,6 +32,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'Th3Whit3Wolf/spacebuddy'
     Plug 'rktjmp/lush.nvim'
     Plug 'npxbr/gruvbox.nvim'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 "Lightline
     Plug 'itchyny/lightline.vim'
 "Git features
@@ -91,11 +92,11 @@ let g:lightline = {
 
 set shell=/bin/zsh
 
-" set background=dark
-" colorscheme gruvbox
+set background=dark
+colorscheme gruvbox
 " lua require('colorbuddy').colorscheme('spacebuddy')
-let g:vscode_style = "dark"
-colorscheme vscode
+" let g:vscode_style ="dark"
+" colorscheme vscode
 " colorscheme one
 " set background=dark
 hi Normal guibg=NONE ctermbg=NONE
