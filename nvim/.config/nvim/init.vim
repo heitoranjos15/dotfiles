@@ -51,6 +51,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
+"Harpoon
+    Plug 'ThePrimeagen/harpoon'
 "Nvim-TreeLua
     Plug 'kyazdani42/nvim-web-devicons' " for file icons
     Plug 'kyazdani42/nvim-tree.lua'
@@ -74,10 +76,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 "   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
-
-lua << EOF
-  require'lspconfig'.pyright.setup{}
-EOF
 
 let g:lightline = {
       \ 'colorscheme': 'wombat',
