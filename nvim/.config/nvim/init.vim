@@ -68,7 +68,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
 
-"   I don't need now 
+"   I don't need now
 "   Plug 'ryanoasis/vim-devicons'
 "   Plug 'scrooloose/NERDTree'
 "   Plug 'mhinz/vim-startify'
@@ -103,12 +103,6 @@ set termguicolors
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 nnoremap <leader>u :UndotreeShow<CR>
-"new line comand
-nmap <S-Enter> O<Esc>
-" python alias (,p runs python on script. ,t times python script)
-nmap ,p :w<CR>:!python3 %<CR>
-nmap ,t :w<CR>:!time python3 %<CR>
-nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -134,3 +128,9 @@ tnoremap <Esc> <C-\><C-n>
 for f in split(glob('~/.config/nvim/plugins/*.vim'), '\n')
       exe 'source' f
 endfor
+
+augroup clean
+    autocmd!
+    autocmd BufWritePre * %s/\s\+$//e
+    autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
+augroup END

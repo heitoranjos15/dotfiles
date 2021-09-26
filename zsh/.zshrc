@@ -136,7 +136,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-neofetch
+#neofetch
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 alias pacman='LANG=C pacman'
