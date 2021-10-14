@@ -39,37 +39,6 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
   end
-
-  require'completion'.on_attach(client, bufnr)
-
-  --protocol.SymbolKind = { }
-  protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-  }
 end
 
 nvim_lsp.diagnosticls.setup {
@@ -130,16 +99,62 @@ nvim_lsp.diagnosticls.setup {
   }
 }
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 local servers = { "pyright", "tsserver", "dockerls", "terraformls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
-    on_attach = on_attach
---    flags = {
---      debounce_text_changes = 150,
---    }
+    on_attach = on_attach,
+    capabilities = capabilities,
   }
 end
+
+vim.o.completeopt = 'menuone,noselect'
+
+local luasnip = require 'luasnip'
+
+local cmp = require 'cmp'
+cmp.setup {
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = {
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end,
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  },
+}
 EOF
 
