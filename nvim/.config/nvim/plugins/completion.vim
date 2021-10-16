@@ -1,7 +1,10 @@
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+
 lua <<EOF
 vim.o.completeopt = 'menuone,noselect'
 
 local luasnip = require 'luasnip'
+local lspkind = require "lspkind"
 
 local cmp = require 'cmp'
 cmp.setup {
@@ -42,7 +45,33 @@ cmp.setup {
   },
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'treesitter' },
     { name = 'luasnip' },
+    { name = 'path' },
+    {
+      name = "buffer",
+      opts = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end,
+      },
+    },
+    { name = "spell" },
+  },
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
+      vim_item.menu = ({
+        nvim_lsp = "ﲳ",
+        luasnip = "",
+        treesitter = "",
+        path = "ﱮ",
+        buffer = "﬘",
+        spell = "暈",
+      })[entry.source.name]
+
+      return vim_item
+   end,
   },
 }
 EOF
