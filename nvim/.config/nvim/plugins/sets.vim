@@ -13,4 +13,3 @@ set shiftwidth=2                " One tab == four spaces.
 set tabstop=2                   " One tab == four spaces.<Paste>
 set smartindent
 
-
