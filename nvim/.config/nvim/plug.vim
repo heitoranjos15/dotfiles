@@ -6,6 +6,7 @@ call plug#begin()
 "Themes
   Plug 'rktjmp/lush.nvim'
   Plug 'ellisonleao/gruvbox.nvim'
+  Plug 'olimorris/onedarkpro.nvim'
 "Git
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-rhubarb'
@@ -38,7 +39,11 @@ call plug#begin()
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'KKPMW/vim-sendtowindow'
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  Plug 'p00f/mdpreview.nvim'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
+  Plug 'nvim-lualine/lualine.nvim'
+"Elixir
+  Plug 'elixir-editors/vim-elixir'
 call plug#end()
 

@@ -4,7 +4,8 @@
 # Path to your oh-my-zsh installation.
 DISABLE_MAGIC_FUNCTIONS=true
 export ZSH="/home/heitor/.oh-my-zsh"
-export GITHUBTOKEN="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"
+export GITHUBTOKEN="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"
+export PAT="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"
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 # Set name of the theme to load --- if set to "random", it will

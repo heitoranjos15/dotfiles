@@ -111,7 +111,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Source Code Pro
+    family: FiraCode Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -124,7 +124,7 @@ font:
     # value specified for the normal font.
     #family: monospace
 
-    family: Source Code Pro
+    family: FiraCode Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     style: Bold
 
@@ -136,7 +136,7 @@ font:
     # value specified for the normal font.
     #family: monospace
 
-    family: Source Code Pro
+    family: FiraCode Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     style: Italic
 
@@ -148,12 +148,12 @@ font:
     # value specified for the normal font.
     #family: monospace
 
-    family: Source Code Pro
+    family: FiraCode Nerd Font Mono
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -178,34 +178,131 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night)
+
 colors:
+  # Default colors
   primary:
-    background: '#2c2c2c'
-    foreground: '#dedede'
-  
-  selection:
-    text: '#458587'
+    background: '0x2c2b2a'
+    foreground: '0xf9e7c4'
 
+    dim_foreground:    '0x685E4A'
+    bright_foreground: '0x1C1508'
+    dim_background:    '0x202322'
+    bright_background: '0x353433'
+
+  # Cursor colors
+  cursor:
+    text:   '0xf9e7c4'
+    cursor: '0xf9e7c4'
+
+  # Normal colors
   normal:
-    black:   '#2c2c2c'
-    red:     '#cc231c'
-    green:   '#689d69'
-    yellow:  '#d79922'
-    blue:    '#366b71'
-    magenta: '#4e5165'
-    cyan:    '#458587'
-    white:   '#c8bb97'
+    black:   '0x282a2e'
+    blue:    '0x5f819d'
+    cyan:    '0x5e8d87'
+    green:   '0x8c9440'
+    magenta: '0x85678f'
+    orange:  '0xcc6953'
+    red:     '0xa54242'
+    white:   '0x707880'
+    yellow:  '0xde935f'
 
+  # Bright colors
   bright:
-    black:   '#777777'
-    red:     '#cc231c'
-    green:   '#689d69'
-    yellow:  '#d79922'
-    blue:    '#366b71'
-    magenta: '#4e5165'
-    cyan:    '#458587'
-    white:   '#c8bb97'
+    black:   '0x373b41'
+    blue:    '0x81a2be'
+    cyan:    '0x8abeb7'
+    green:   '0xb5bd68'
+    magenta: '0xb294bb'
+    red:     '0xcc6666'
+    white:   '0xc5c8c6'
+    yellow:  '0xf0c674'
+# Colors (Gruvbox dark)
+# colors:
+#   # Default colors
+#   primary:
+#     # hard contrast: background = '0x1d2021'
+#     background: '0x282828'
+#     # soft contrast: background = '0x32302f'
+#     foreground: '0xebdbb2'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x282828'
+#     red:     '0xcc241d'
+#     green:   '0x98971a'
+#     yellow:  '0xd79921'
+#     blue:    '0x458588'
+#     magenta: '0xb16286'
+#     cyan:    '0x689d6a'
+#     white:   '0xa89984'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x928374'
+#     red:     '0xfb4934'
+#     green:   '0xb8bb26'
+#     yellow:  '0xfabd2f'
+#     blue:    '0x83a598'
+#     magenta: '0xd3869b'
+#     cyan:    '0x8ec07c'
+#     white:   '0xebdbb2'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x101216'
+#     foreground: '0xa7b5cd'
+
+#   # Normal colors
+#   normal:
+#     black:   '0x101216'
+#     red:     '0x973d46'
+#     green:   '0x7ca25c'
+#     yellow:  '0xe0ae4a'
+#     blue:    '0x517ba5'
+#     magenta: '0x94628a'
+#     cyan:    '0x5f9f9e'
+#     white:   '0xb4c0d4'
+
+#   # Bright colors
+#   bright:
+#     black:   '0x1b1e25'
+#     red:     '0x973d46'
+#     green:   '0x7ca25c'
+#     yellow:  '0xe0ae4a'
+#     blue:    '0x517ba5'
+#     magenta: '0x94628a'
+#     cyan:    '0x5f9f9e'
+#     white:   '0xb4c0d4'
+
+# Colors (Tomorrow Night)
+# colors:
+#   primary:
+#     background: '#2c2c2c'
+#     foreground: '#dedede'
+  
+#   selection:
+#     text: '#458587'
+
+#   normal:
+#     black:   '#2c2c2c'
+#     red:     '#cc231c'
+#     green:   '#689d69'
+#     yellow:  '#d79922'
+#     blue:    '#366b71'
+#     magenta: '#4e5165'
+#     cyan:    '#458587'
+#     white:   '#c8bb97'
+
+#   bright:
+#     black:   '#777777'
+#     red:     '#cc231c'
+#     green:   '#689d69'
+#     yellow:  '#d79922'
+#     blue:    '#366b71'
+#     magenta: '#4e5165'
+#     cyan:    '#458587'
+#     white:   '#c8bb97'
 
   # Dim colors
   #
@@ -276,8 +373,8 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.85
-
+background_opacity: 0.86
+# background_opacity: 1
 #selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
@@ -640,21 +737,21 @@ cursor:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { key: V,         mods: Control|Shift,              action: Paste                      }
-  - { key: C,         mods: Control|Shift,              action: Copy                       }
-  - { key: Insert,    mods: Shift,                      action: PasteSelection             }
-  - { key: Key0,      mods: Control,                    action: ResetFontSize              }
-  - { key: Equals,    mods: Control,                    action: IncreaseFontSize           }
-  - { key: Plus,      mods: Control,                    action: IncreaseFontSize           }
-  - { key: Minus,     mods: Control,                    action: DecreaseFontSize           }
-  - { key: Minus,     mods: Control,                    action: DecreaseFontSize           }
-  - { key: F11,       mods: None,                       action: ToggleFullScreen           }
-  - { key: L,         mods: Control,                    action: ClearLogNotice             }
-  - { key: L,         mods: Control,                    chars: "\x0c"                      }
-  - { key: PageUp,    mods: None,                       action: ScrollPageUp,   mode: ~Alt } 
-  - { key: PageDown,  mods: None,                       action: ScrollPageDown, mode: ~Alt } 
-  - { key: Home,      mods: None,                       action: ScrollToTop,    mode: ~Alt } 
-  - { key: End,       mods: None,                       action: ScrollToBottom, mode: ~Alt } 
+  - { key: V,           mods: Control|Shift,              action: Paste                      }
+  - { key: C,           mods: Control|Shift,              action: Copy                       }
+  - { key: Insert,      mods: Shift,                      action: PasteSelection             }
+  - { key: Asterisk,    mods: Control,                    action: ResetFontSize              }
+  - { key: Equals,      mods: Control,                    action: IncreaseFontSize           }
+  - { key: Plus,        mods: Control,                    action: IncreaseFontSize           }
+  - { key: Minus,       mods: Control,                    action: DecreaseFontSize           }
+  - { key: Minus,       mods: Control,                    action: DecreaseFontSize           }
+  - { key: F11,         mods: None,                       action: ToggleFullScreen           }
+  - { key: L,           mods: Control,                    action: ClearLogNotice             }
+  - { key: L,           mods: Control,                    chars: "\x0c"                      }
+  - { key: PageUp,      mods: None,                       action: ScrollPageUp,   mode: ~Alt } 
+  - { key: PageDown,    mods: None,                       action: ScrollPageDown, mode: ~Alt } 
+  - { key: Home,        mods: None,                       action: ScrollToTop,    mode: ~Alt } 
+  - { key: End,         mods: None,                       action: ScrollToBottom, mode: ~Alt } 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }

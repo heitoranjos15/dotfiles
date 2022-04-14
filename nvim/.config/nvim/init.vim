@@ -8,11 +8,17 @@ if executable('rg')
     let g:rg_derive_root='true'
 endif
 
-set t_Co=256
-set termguicolors
-
 set background=dark " or light if you want light mode
 colorscheme gruvbox
+let g:netrw_localrmdir='rm -r'
+"colorscheme onedarkpro
+
+
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+set encoding=UTF-8
+set termguicolors
+
 
 nnoremap <leader>u :UndotreeShow<CR>
 

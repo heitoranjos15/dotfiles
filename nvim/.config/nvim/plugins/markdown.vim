@@ -21,6 +21,6 @@ let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
 let g:mkdp_page_title = '「${name}」'
 
-nmap mh <Plug>MarkdownPreview
+nmap mo <Plug>MarkdownPreview
 nmap ms <Plug>MarkdownPreviewStop
-nmap mt <Plug>MarkdownPreviewToggle
+nmap mp <Plug>MarkdownPreviewToggle

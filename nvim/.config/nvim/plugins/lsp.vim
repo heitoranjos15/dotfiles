@@ -52,18 +52,23 @@ nvim_lsp.flow.setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
   capabilities = capabilities,
 }
 
-local sumneko_root_path = 'home/heitor/language-servers/lua-language-server'
-local sumneko_binary = sumneko_root_path..'bin/Linux/lua-language-server'
+require'lspconfig'.prismals.setup{}
+
+local sumneko_root_path = '/home/heitor/language-servers/lua-language-server'
+local sumneko_binary = sumneko_root_path..'/bin/Linux/lua-language-server'
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
+
+require'lspconfig'.pylsp.setup{}
 
 require'lspconfig'.sumneko_lua.setup {
   cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
@@ -145,6 +150,25 @@ nvim_lsp.diagnosticls.setup {
       typescriptreact = 'eslint_d',
       json = 'prettier',
       markdown = 'prettier',
+    }
+  }
+}
+
+
+require'lspconfig'.elixirls.setup{
+ cmd = { "/home/heitor/language-servers/elixir/language_server.sh" };
+ capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    elixirLS = {
+      -- I choose to disable dialyzer for personal reasons, but
+      -- I would suggest you also disable it unless you are well
+      -- aquainted with dialzyer and know how to use it.
+      dialyzerEnabled = false,
+      -- I also choose to turn off the auto dep fetching feature.
+      -- It often get's into a weird state that requires deleting
+      -- the .elixir_ls directory and restarting your editor.
+      fetchDeps = false
     }
   }
 }
