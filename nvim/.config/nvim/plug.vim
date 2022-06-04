@@ -45,5 +45,9 @@ call plug#begin()
   Plug 'nvim-lualine/lualine.nvim'
 "Elixir
   Plug 'elixir-editors/vim-elixir'
+"DB
+  Plug 'tpope/vim-dadbod'
+  Plug 'kristijanhusak/vim-dadbod-ui'
+  Plug 'kristijanhusak/vim-dadbod-completion'
 call plug#end()
 
